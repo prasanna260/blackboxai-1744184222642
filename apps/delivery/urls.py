@@ -1,7 +1,14 @@
 from django.urls import path
-from .views import DeliveryAssignmentView, DeliveryStatusUpdateView
+from .views import (
+    AvailableOrdersView,
+    AcceptOrderView,
+    MyDeliveriesView,
+    DeliveryStatusUpdateView
+)
 
 urlpatterns = [
-    path('assignments/', DeliveryAssignmentView.as_view(), name='delivery-assignments'),
-    path('assignments/<int:pk>/', DeliveryStatusUpdateView.as_view(), name='delivery-status'),
+    path('available/', AvailableOrdersView.as_view(), name='available-orders'),
+    path('accept/<int:pk>/', AcceptOrderView.as_view(), name='accept-order'),
+    path('my-deliveries/', MyDeliveriesView.as_view(), name='my-deliveries'),
+    path('update-status/<int:pk>/', DeliveryStatusUpdateView.as_view(), name='update-delivery-status'),
 ]
