@@ -18,3 +18,8 @@ class OrderSerializer(serializers.ModelSerializer):
         fields = ['id', 'customer', 'status', 'status_display', 'total_amount',
                  'delivery_date', 'created_at', 'updated_at', 'items']
         read_only_fields = ['created_at', 'updated_at', 'customer']
+
+class OrderStatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = ['status']
